@@ -1,0 +1,65 @@
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .container {
+    width: 400px;
+    height: 400px;
+
+    * {
+      pointer-events: none;
+    }
+
+
+    ul {
+      position: relative;
+      top: 20%;
+      left: 30%;
+
+      li {
+        list-style-type: none;
+        width: 9rem;
+        height: 9rem;
+        position: absolute;
+        border-radius: 50%;
+        border: 2px solid lime;
+        animation: girar 20s ease infinite;
+        animation-delay: calc(.1s * var(--d));
+        transform-origin: bottom center;
+      }
+    }
+  }
+
+  @keyframes girar {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(369deg);
+    }
+  }
+
+  @media (width <=700px) and (orientation: portrait) {
+    .container {
+      ul {
+        top: 40%;
+        left: 30%;
+
+        li {
+          width: 11rem;
+          height: 11rem;
+        }
+      }
+    }
+  }
